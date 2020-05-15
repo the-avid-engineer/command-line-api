@@ -35,6 +35,8 @@ namespace System.CommandLine.Rendering
 
         public abstract void ResetColor();
 
+        public IStandardStreamReader In => Console.In;
+
         public IStandardStreamWriter Out => Console.Out;
 
         public IStandardStreamWriter Error => Console.Error;

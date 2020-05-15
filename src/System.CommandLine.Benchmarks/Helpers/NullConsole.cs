@@ -8,7 +8,9 @@ namespace System.CommandLine.Benchmarks.Helpers
     class NullConsole : IConsole
     {
         readonly NullStreamWriter _nullWriter = new NullStreamWriter();
+        readonly NullStreamReader _nullReader = new NullStreamReader();
 
+        public IStandardStreamReader In => _nullReader;
         public IStandardStreamWriter Out => _nullWriter;
         public IStandardStreamWriter Error => _nullWriter;
 

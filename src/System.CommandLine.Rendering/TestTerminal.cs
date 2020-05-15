@@ -18,6 +18,7 @@ namespace System.CommandLine.Rendering
         private readonly StringBuilder _ansiCodeBuffer = new StringBuilder();
         private ConsoleColor _backgroundColor = ConsoleColor.Black;
         private ConsoleColor _foregroundColor = ConsoleColor.White;
+        private readonly RecordingReader _in = new RecordingReader(string.Empty);
         private readonly RecordingWriter _out = new RecordingWriter();
         private readonly RecordingWriter _error = new RecordingWriter();
 
@@ -26,6 +27,7 @@ namespace System.CommandLine.Rendering
             _out.CharWritten += OnCharWrittenToOut;
         }
 
+        public IStandardStreamReader In => _in;
         public IStandardStreamWriter Out => _out;
         public IStandardStreamWriter Error => _error;
 
